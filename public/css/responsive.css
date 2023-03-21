@@ -54,12 +54,18 @@
    }
 
    nav ul li.menu-item:hover {
-      font-family: "Poppins", sans-serif;
       font-weight: bold;
       background-color: var(--dark-blue-color);
       border-radius: 20px;
       text-decoration: none;
    }
+
+   .menu-item-hover{
+      font-weight: bold;
+      background-color: var(--dark-blue-color);
+      border-radius: 20px;
+      text-decoration: none;
+  }
 
 
 }

@@ -68,6 +68,11 @@ $(function () {
       // An error happened.
     });
   })
+  $("#nav-pt").removeClass("menu-item-hover")
+  $("#nav-dt").removeClass("menu-item-hover")
+  $("#nav-news").removeClass("menu-item-hover")
+
+
   if (window.location.pathname.endsWith("people.html")) {
     let type = getUrlParameter("type")
     let action = getUrlParameter("action")
@@ -80,15 +85,24 @@ $(function () {
     }
     else { //Nếu như là xem danh sách bệnh nhân
       $("#new-section").hide()
+      if (type === "pt") {
+        $("#patients-title").text("Thông tin bệnh nhân")
+      }else{
+        $("#patients-title").text("Thông tin người chăm sóc")
+      }
     }
     if (type === "pt") {
+      $("#nav-pt").addClass("menu-item-hover")
       $("#new-title").text("Đăng thông tin bệnh nhân")
       $("#label-desc").text("Bệnh lý")
+
     }
     else if (type === "dt") {
+      $("#nav-dt").addClass("menu-item-hover")
       $("#new-title").text("Đăng thông tin người chăm sóc")
       $("#label-desc").text("Trình độ")
       $("#label-desc2").text("Trình độ:")
+    
     }
     onValue(ref(db, 'db/' + type), (snapshot) => {
       const pt = snapshot.val();
@@ -180,6 +194,7 @@ $(function () {
     });
   }
   else if (window.location.pathname.endsWith("news.html")) {
+    $("#nav-news").addClass("menu-item-hover")
     let action = getUrlParameter("action")
     if (action === "new") { //Nếu vào để thêm mới thì hiển thị form
       $(".new-content").show()
